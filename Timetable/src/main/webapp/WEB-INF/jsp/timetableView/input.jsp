@@ -48,6 +48,7 @@
 	
 	<script>
 	
+	//main test
 	<%-- controller에서 넘어온 List 결과값들을 JS의 배열로 저장 --%>
 	function inputAry(str, strAry){
 		if(str.length > 0){		  // 빈 행인지 검사
