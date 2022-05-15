@@ -51,23 +51,23 @@
 	//main test
 	<%-- controller에서 넘어온 List 결과값들을 JS의 배열로 저장 --%>
 	function inputAry(str, strAry){
-		if(str.length > 0){		  // 빈 행인지 검사
-			  let pos = 0;		  // indexOf()에서 사용할 문자열 시작위치
+		if(str.length > 0){		  // column 값들이 존재하는지 검사
+			  let idx = 0;		  // indexOf()에서 사용할 문자열 시작위치 index
 			  let element;		  // 배열에 담을 테이블 column 행들의 값들
 			  let findEqual;      // '=' 문자 index
 			  let findBracket;    // '}' 문자 index
 			  let findLastBracket;// 문자열 마지막 '}' 문자 index
 			  do{
-				  findEqual = str.indexOf('=', pos);
-				  pos = findEqual;
-				  findBracket = str.indexOf('}', pos);
-				  pos = findBracket;
+				  findEqual = str.indexOf('=', idx);
+				  idx = findEqual;
+				  findBracket = str.indexOf('}', idx);
+				  idx = findBracket;
 				  findLastBracket = str.lastIndexOf('}');
 				  
 				  element = str.substring((findEqual+1), findBracket);
 				  strAry.push(element);
 				  
-			  }while(pos != findLastBracket); // 마지막 '}' 문자인지 검사
+			  }while(idx != findLastBracket); // 마지막 '}' 문자인지 검사
 		  }
 	}
 	
@@ -100,7 +100,7 @@
 	
 	<%-- 학기 메뉴값을 변경했을때 --%>
 	function changedSemester(){ 
-		<%-- 요일 메뉴값 추가하기 위해 1회 실행--%>
+		<%-- 요일 메뉴값 추가하기 위해 최초 1회 실행--%>
 		if($('#weekSelect').children('option').length == 1){
 			let str = '${week}';
 			let strAry = [];
@@ -117,7 +117,7 @@
 	
 	<%-- 요일 메뉴값을 변경했을때 --%>
 	function changedWeek(){
-		<%-- 시간 메뉴값 추가하기 위해 1회 실행--%>
+		<%-- 시간 메뉴값 추가하기 위해 최초 1회 실행--%>
 		if($('#timeSelect').children('option').length == 1){
 			let str = '${time}';
 			let strAry = [];
@@ -134,7 +134,7 @@
 	
 	<%-- 시간 메뉴값을 변경했을때 --%>
 	function changedTime(){
-		<%-- 과목 메뉴값 추가하기 위해 1회 실행--%>
+		<%-- 과목 메뉴값 추가하기 위해 최초 1회 실행--%>
 		if($('#subjectSelect').children('option').length == 1){
 			let str = '${subject}';
 			let strAry = [];
