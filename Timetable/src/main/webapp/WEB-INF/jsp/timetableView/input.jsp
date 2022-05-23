@@ -10,11 +10,10 @@
 
 </head>
 	<body>
-	${week.size()}
-	${semester}
-	${week[1].day_kr}
-	${time[1].time_nm}
-	${subject[1].sbjt_nm}
+	${semester.size()}<br>
+	${semester}<br>
+	${semester[0].sem}<br>
+	${semester[1].sem}<br>
 	
 		<h1> 시간표 입력화면</h1>
 		
@@ -80,7 +79,7 @@
 				  alert("ajax 성공");
 				  
 				  let str = '${semester}'; 
-				  let strAry = [];
+				  let strAry = []; // str 문자열 값들 중에서 DB column값만 저장.
 				  
 				  inputAry(str, strAry);
 				  console.log(strAry);
@@ -103,7 +102,7 @@
 		<%-- 요일 메뉴값 추가하기 위해 최초 1회 실행--%>
 		if($('#weekSelect').children('option').length == 1){
 			let str = '${week}';
-			let strAry = [];
+			let strAry = []; // str 문자열 값들 중에서 DB column값만 저장.
 			  
 			inputAry(str, strAry);
 			for(let i = 0; i < ${week.size()}; i++) {                
@@ -120,7 +119,7 @@
 		<%-- 시간 메뉴값 추가하기 위해 최초 1회 실행--%>
 		if($('#timeSelect').children('option').length == 1){
 			let str = '${time}';
-			let strAry = [];
+			let strAry = []; // str 문자열 값들 중에서 DB column값만 저장.
 			  
 			inputAry(str, strAry);
 			for(let i = 0; i < ${time.size()}; i++){                
@@ -136,8 +135,8 @@
 	function changedTime(){
 		<%-- 과목 메뉴값 추가하기 위해 최초 1회 실행--%>
 		if($('#subjectSelect').children('option').length == 1){
-			let str = '${subject}';
-			let strAry = [];
+			let str = '${subject}'; 
+			let strAry = []; // str 문자열 값들 중에서 DB column값만 저장.
 			  
 			inputAry(str, strAry);
 			for(let i = 0; i < ${subject.size()}; i++){                
